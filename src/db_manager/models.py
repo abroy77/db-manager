@@ -6,7 +6,7 @@ from sqlalchemy import create_engine, ForeignKey
 from sqlalchemy.orm import Session
 import datetime
 from sqlalchemy.orm import relationship
-from sqlalchemy import Table, Column, Integer, ForeignKey, String
+from sqlalchemy import Table, Column, Integer
 
 
 # declarative base class

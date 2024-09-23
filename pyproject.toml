@@ -7,3 +7,9 @@ requires-python = ">=3.12"
 dependencies = [
     "sqlalchemy>=2.0.35",
 ]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/db_manager"]
+
+[tool.hatch.build.targets.wheel]
+include = ["src/db_manager"]
