@@ -1,7 +1,7 @@
 from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, ForeignKey
 from sqlalchemy.orm import Session
 import datetime
 
@@ -18,7 +18,15 @@ class Book(Base):
     title: Mapped[str] = mapped_column(nullable=False)
     author: Mapped[str] = mapped_column(nullable=False)
     date_published: Mapped[datetime.datetime] = mapped_column(nullable=True, default=None)
+    publisher: Mapped[str] = mapped_column(ForeignKey("publishers.name"))
     # genre: Mapped[]
+
+
+class Publisher(Base):
+    __tablename__ = "publishers"
+
+    name: Mapped[str] = mapped_column(primary_key=True, nullable=False)
+    city: Mapped[str] = mapped_column(nullable=False)
 
 
 def main() -> None:
